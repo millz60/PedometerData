@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PedometerData" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUe-X0-gHx">
+                                <rect key="frame" x="20" y="225" width="560" height="316"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w9x-qL-0K7">
+                                        <rect key="frame" x="8" y="8" width="544" height="300"/>
+                                        <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="w9x-qL-0K7" firstAttribute="trailing" secondItem="UUe-X0-gHx" secondAttribute="trailingMargin" id="7GQ-r9-zEY"/>
+                                    <constraint firstItem="w9x-qL-0K7" firstAttribute="top" secondItem="UUe-X0-gHx" secondAttribute="topMargin" id="ULL-ps-g7j"/>
+                                    <constraint firstItem="w9x-qL-0K7" firstAttribute="leading" secondItem="UUe-X0-gHx" secondAttribute="leadingMargin" id="mRb-l9-HZR"/>
+                                    <constraint firstItem="w9x-qL-0K7" firstAttribute="bottom" secondItem="UUe-X0-gHx" secondAttribute="bottomMargin" id="yKk-Gm-gIQ"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ar-zK-Ujc">
+                                <rect key="frame" x="161" y="187" width="279" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="279" id="M3n-kc-9hN"/>
+                                </constraints>
+                                <state key="normal" title="Generate Personal Fitness Graph"/>
+                                <connections>
+                                    <action selector="generateFitnessGraph" destination="BYZ-38-t0r" eventType="touchUpInside" id="a8Y-3G-d7M"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6ar-zK-Ujc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Bqz-9n-c2a"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UUe-X0-gHx" secondAttribute="bottom" constant="59" id="VSP-53-i9l"/>
+                            <constraint firstItem="6ar-zK-Ujc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="167" id="jZR-qv-V8Y"/>
+                            <constraint firstItem="UUe-X0-gHx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="kFU-7d-tji"/>
+                            <constraint firstItem="6ar-zK-Ujc" firstAttribute="centerX" secondItem="UUe-X0-gHx" secondAttribute="centerX" id="n7I-TX-4YH"/>
+                            <constraint firstItem="UUe-X0-gHx" firstAttribute="top" secondItem="6ar-zK-Ujc" secondAttribute="bottom" constant="8" symbolic="YES" id="z6b-rP-0fs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="graphView" destination="w9x-qL-0K7" id="LPQ-1v-YA1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="429"/>
+        </scene>
+    </scenes>
+</document>
