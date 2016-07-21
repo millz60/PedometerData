@@ -40,18 +40,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         self.pedometer = CMPedometer()
-    
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    @IBAction func generateFitnessGraph() {
         
         let calendar = NSCalendar.currentCalendar()
-  
+        
         for i in 1...7{
             let startDay = calendar.dateByAddingUnit(.Day, value: -i, toDate: NSDate(), options: [])
             self.pedometer.queryPedometerDataFromDate(startDay!, toDate: NSDate()) { (data: CMPedometerData?, error: NSError?) in
@@ -78,6 +69,19 @@ class ViewController: UIViewController {
                 }
             }
         }
+        
+        
+    
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    @IBAction func generateFitnessGraph() {
+        
+        self.view.setNeedsDisplay()
         
         let bar1 = UIView(frame: CGRectMake(10, (graphView.frame.height) - 40 , 35, -CGFloat(self.day1)/25 ))
         bar1.backgroundColor = UIColor.blackColor()
