@@ -26,13 +26,7 @@ class ViewController: UIViewController {
 
     var pedometer: CMPedometer!
     var totalSteps: Int!
-    var day1: Int = 0
-    var day2: Int = 0
-    var day3: Int = 0
-    var day4: Int = 0
-    var day5: Int = 0
-    var day6: Int = 0
-    var day7: Int = 0
+    var dayData: [Int] = []
 
     
     
@@ -52,19 +46,20 @@ class ViewController: UIViewController {
                     let totalSteps: Int! = data.numberOfSteps.integerValue
                     
                     if (i == 1){
-                        self.day1 = totalSteps;
+                        self.dayData.append(totalSteps)
                     } else if (i == 2){
-                        self.day2 = totalSteps - self.day1
+                        self.dayData.append(totalSteps - self.dayData[0])
                     } else if (i == 3) {
-                        self.day3 = totalSteps - self.day2 - self.day1
+                        self.dayData.append(totalSteps - self.dayData[0] - self.dayData[1])
                     } else if (i == 4) {
-                        self.day4 = totalSteps - self.day3 - self.day2 - self.day1
+                        self.dayData.append(totalSteps - self.dayData[0] - self.dayData[1] - self.dayData[2])
                     } else if (i == 5) {
-                        self.day5 = totalSteps - self.day4 - self.day3 - self.day2 - self.day1
+                        self.dayData.append(totalSteps - self.dayData[0] - self.dayData[1] - self.dayData[2] - self.dayData[3])
                     } else if (i == 6 ) {
-                        self.day6 = totalSteps - self.day5 - self.day4 - self.day3 - self.day2 - self.day1
+                        self.dayData.append(totalSteps - self.dayData[0] - self.dayData[1] - self.dayData[2] - self.dayData[3] - self.dayData[4])
                     } else if (i == 7) {
-                        self.day7 = totalSteps - self.day6 - self.day5 - self.day4 - self.day3 - self.day2 - self.day1
+                        self.dayData.append(totalSteps - self.dayData[0] - self.dayData[1] - self.dayData[2] - self.dayData[3] - self.dayData[4] - self.dayData[5])
+
                     }
                 }
             }
@@ -83,19 +78,18 @@ class ViewController: UIViewController {
         
         self.view.setNeedsDisplay()
         
-        let barArray = [day1,day2,day3,day4,day5,day6,day7];
         var xValue = 10;
         
         for i in 0...6{
             
             
-            let bar1 = UIView(frame: CGRectMake(CGFloat(xValue), (graphView.frame.height) - 40 , 35, -CGFloat(barArray[i])/25 ))
+            let bar1 = UIView(frame: CGRectMake(CGFloat(xValue), (graphView.frame.height) - 40 , 35, -CGFloat(dayData[i])/25 ))
             bar1.backgroundColor = UIColor.blackColor()
-            if (barArray[i] != 0){
+            if (dayData[i] != 0){
                 let bar1Label = UILabel(frame: CGRectMake(CGFloat(xValue)+2.5, (graphView.frame.height)-50, 35, 50))
                 bar1Label.textColor = UIColor.blackColor()
                 bar1Label.font = bar1Label.font.fontWithSize(12.5)
-                bar1Label.text = String(barArray[i])
+                bar1Label.text = String(dayData[i])
                 graphView.addSubview(bar1Label)
             }
             xValue += 51
